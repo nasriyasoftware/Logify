@@ -18,7 +18,7 @@ interface Log {
     type?: LogType;
 }
 
-export class logifyLogger {
+class logifyLogger {
     private readonly _eventEmitter: EventEmitter;
     /**The current logs */
     private _logs: Log[] = [];

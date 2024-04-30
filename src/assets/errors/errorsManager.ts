@@ -2,7 +2,7 @@ import { EventEmitter } from 'stream';
 import { AppErrorOptions } from '../../docs/docs';
 import AppError from './assets/AppError';
 
-export class ErrorsManager {
+class ErrorsManager {
     private readonly _eventEmitter: EventEmitter;
 
     constructor(eventEmitter: EventEmitter) {

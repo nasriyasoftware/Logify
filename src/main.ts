@@ -1,5 +1,5 @@
-import { ErrorsManager } from "./assets/errors/errorsManager";
-import { logifyLogger } from './assets/coreLogger/logger';
+import ErrorsManager from "./assets/errors/errorsManager";
+import logifyLogger from './assets/coreLogger/logger';
 
 import { LogifyInitOptions, UncaughtException } from "./docs/docs";
 import helpers from './utils/helpers';

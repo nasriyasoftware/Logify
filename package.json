@@ -19,13 +19,13 @@
     "Robust",
     "Customizable"
   ],
-  "main": "main.ts",
+  "main": "src/main.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "Logify"
+    "url": "https://github.com/nasriyasoftware/Logify"
   },
   "author": "Nasriya Software, LLC.",
   "license": "ISC",
