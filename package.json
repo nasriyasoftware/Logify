@@ -1,0 +1,38 @@
+{
+  "name": "nasriya-logify",
+  "version": "1.0.0",
+  "description": "Versatile logging package for seamless integration and comprehensive error tracking.",
+  "keywords": [
+    "Logging",
+    "Error tracking",
+    "Debugging",
+    "Performance monitoring",
+    "Versatile",
+    "Integration",
+    "Development",
+    "Utility",
+    "JavaScript",
+    "Node.js",
+    "Package",
+    "Library",
+    "Error handling",
+    "Robust",
+    "Customizable"
+  ],
+  "main": "main.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "Logify"
+  },
+  "author": "Nasriya Software, LLC.",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.7"
+  },
+  "dependencies": {
+    "nasriya-cron": "github:nasriyasoftware/NasriyaCron"
+  }
+}
