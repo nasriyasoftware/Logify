@@ -2,13 +2,12 @@ import { EventEmitter } from 'events';
 import { AppErrorOptions, ErrorFlags, ErrorSeverity } from '../../../../../src/docs/docs';
 /**
  * Create a new `AppError`. This is a generic error.
- *
+ * 
  * **Example**
  * ```ts
- * import Logify from 'nasriya-logify';
- * const logify = new Logify();
- *
- * throw logger.errors.AppError({ name: 'PaymentError', message: 'Something went wrong' })
+ * import logify from 'nasriya-logify';
+ * 
+ * throw logify.errors.AppError({ name: 'PaymentError', description: 'Something went wrong' })
  * ```
  */
 declare class AppError extends Error {

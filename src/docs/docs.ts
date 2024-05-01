@@ -21,7 +21,7 @@ export interface ErrorFlags {
     [flag: string]: boolean | undefined;
 }
 
-export interface LogifyInitOptions {
+export interface LogifyConfigOptions {
     /**The name of the running service or process. Default: `process.pid` */
     service?: string;
     /**Set different handlers for more robust error handling */

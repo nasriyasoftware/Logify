@@ -14,10 +14,9 @@ class ErrorsManager {
      * 
      * **Example**
      * ```ts
-     * import Logify from 'nasriya-logify';
-     * const logify = new Logify();
+     * import logify from 'nasriya-logify';
      * 
-     * throw logger.errors.AppError({ name: 'PaymentError', description: 'Something went wrong' })
+     * throw logify.errors.AppError({ name: 'PaymentError', description: 'Something went wrong' })
      * ```
      */
     AppError(options: AppErrorOptions): AppError {

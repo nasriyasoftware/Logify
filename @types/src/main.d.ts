@@ -1,27 +1,24 @@
-import { EventEmitter } from 'events';
-import { ErrorsManager } from "../../src/assets/errors/errorsManager";
-import { logifyLogger } from '../../src/assets/coreLogger/logger';
-import { UncaughtException, LogifyInitOptions } from "../../src/docs/docs";
+import { LogifyConfigOptions } from "../../src/docs/docs";
+import LogifyLogger from '../../src/assets/coreLogger/logger';
+import ErrorsManager from '../../src/assets/errors/errorsManager';
+import LogifyMiddlewares from '../../src/assets/middlewares/middlewares';
 
 declare class Logify {
-    private readonly _eventEmitter: EventEmitter;
-    private _errorsManager: ErrorsManager;
-    private _logger: logifyLogger;
-    private _config: {
-        service: string;
-    };
-    private _userHandlers: {
-        uncaughtException: UncaughtException | undefined;
-    };
-
-    constructor(options?: LogifyInitOptions);
+    /**
+     * Configure logify to suite your needs
+     * @param options Options to configure the Logify module
+     * @returns {void}
+     */
+    config(options?: LogifyConfigOptions): void;
 
     /**Error Management APIs */
     get errors(): ErrorsManager;
     /**Logger APIs to add things to the log */
-    get logger(): logifyLogger;
+    get logger(): LogifyLogger;
     /**The name of the current service */
     get service(): string;
+    /**Middlewares for servers */
+    get middlewares(): LogifyMiddlewares;
 }
 
 export default Logify;
