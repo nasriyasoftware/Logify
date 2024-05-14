@@ -2,17 +2,17 @@
   "name": "nasriya-logify",
   "version": "1.0.0",
   "description": "Versatile logging package for seamless integration and comprehensive error tracking.",
-  "main": "dist/cjs/main.js",
-  "module": "dist/esm/main.js",
-  "types": "dist/@types/main.d.ts",
-  "type": "module",
+  "main": "./dist/cjs/main.js",
+  "module": "./dist/esm/main.js",
+  "types": "./dist/@types/main.d.ts",
   "files": [
     "dist/**/*"
   ],
   "exports": {
     ".": {
       "import": "./dist/esm/main.js",
-      "require": "./dist/cjs/main.js"
+      "require": "./dist/cjs/main.js",
+      "types": "./dist/@types/main.d.ts"
     }
   },
   "scripts": {
