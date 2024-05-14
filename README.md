@@ -12,8 +12,14 @@ npm i nasriyasoftware/logify
 ```
 
 ### Importing
+Import in **ES6** module
 ```ts
 import logify from 'nasriya-logify';
+```
+
+Import in **CommonJS (CJS)**
+```js
+const logify = require('nasriya-logify').default;
 ```
 
 ### Configuration

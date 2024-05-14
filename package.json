@@ -2,6 +2,25 @@
   "name": "nasriya-logify",
   "version": "1.0.0",
   "description": "Versatile logging package for seamless integration and comprehensive error tracking.",
+  "main": "dist/cjs/main.js",
+  "module": "dist/esm/main.js",
+  "types": "dist/@types/main.d.ts",
+  "type": "module",
+  "files": [
+    "dist/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/main.js",
+      "require": "./dist/cjs/main.js"
+    }
+  },
+  "scripts": {
+    "build": "npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "test": "jest"
+  },
   "keywords": [
     "Logging",
     "Error tracking",
@@ -19,10 +38,6 @@
     "Robust",
     "Customizable"
   ],
-  "main": "src/main.ts",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/nasriyasoftware/Logify"
@@ -30,7 +45,9 @@
   "author": "Nasriya Software, LLC.",
   "license": "ISC",
   "devDependencies": {
-    "@types/node": "^20.12.7"
+    "@types/node": "^20.12.7",
+    "@types/node-cron": "^3.0.11",
+    "@types/node-schedule": "^2.1.7"
   },
   "dependencies": {
     "nasriya-cron": "github:nasriyasoftware/NasriyaCron"

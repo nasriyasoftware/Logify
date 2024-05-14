@@ -1,75 +1,73 @@
-import helpers from "../../utils/helpers";
-import LogifyLogger from "../coreLogger/logger";
-
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const helpers_1 = __importDefault(require("../../utils/helpers"));
 class LogifyMiddlewares {
-    private readonly _logger: LogifyLogger;
-    private readonly _diver = '#'.repeat(100);
-
-    constructor(logger: LogifyLogger) {
+    _logger;
+    _diver = '#'.repeat(100);
+    constructor(logger) {
         this._logger = logger;
     }
-
-    private readonly _utils = {
-        scanAndReplaceSensitiveData: (obj: Record<string, any>): Record<string, any> => {
-            if (!(helpers.isRealObject(obj) || Array.isArray(obj))) { return obj }
+    _utils = {
+        scanAndReplaceSensitiveData: (obj) => {
+            if (!(helpers_1.default.isRealObject(obj) || Array.isArray(obj))) {
+                return obj;
+            }
             const sensitiveInfo = ['password', 'passwords', 'apikey', 'api_key', 'token', 'access_token', 'accesstoken', 'secret', 'name', 'email', 'address', 'phone', 'ssn', 'health_info', 'healthinfo', 'medical_condition', 'medicalcondition', 'treatment', 'patient_id', 'patientid'];
-
             // If the object is an array, recursively scan each element
             if (Array.isArray(obj)) {
-                return obj.map((item: any) => this._utils.scanAndReplaceSensitiveData(item));
+                return obj.map((item) => this._utils.scanAndReplaceSensitiveData(item));
             }
-
             // Iterate through each property of the object
             for (const key in obj) {
                 if (obj.hasOwnProperty(key)) {
                     // If the property name matches any sensitive info, replace its value
                     if (sensitiveInfo.includes(key.toLowerCase())) {
                         obj[key] = 'LogifySensitiveData';
-                    } else {
+                    }
+                    else {
                         // If the property value is an object or array, recursively scan it
-                        if (helpers.isRealObject(obj[key])) {
+                        if (helpers_1.default.isRealObject(obj[key])) {
                             obj[key] = this._utils.scanAndReplaceSensitiveData(obj[key]);
                         }
                     }
                 }
             }
-
             return obj;
         }
-    }
-
+    };
     /**A middleware used specifically with Nasriya HyperCloud framework */
-    public readonly hypercloud = (request: Record<string, any>, response: Record<string, any>, next: Function): any => {
+    hypercloud = (request, response, next) => {
         try {
-            const content: string[] = [];
-
-            content.push(this._diver, `${'#'.repeat(39)} Incoming HTTP Request ${'#'.repeat(38)}`, this._diver)
+            const content = [];
+            content.push(this._diver, `${'#'.repeat(39)} Incoming HTTP Request ${'#'.repeat(38)}`, this._diver);
             content.push(`HTTP [${request.method}] Request from [${request.ip}] to [${request.href}]`);
             content.push(`Request ID: ${request.id}`);
-            if (helpers.isRealObject(request.query) && Object.keys(request.query).length > 0) { content.push(`Query: ${JSON.stringify(request.query, null, 4)}`) }
+            if (helpers_1.default.isRealObject(request.query) && Object.keys(request.query).length > 0) {
+                content.push(`Query: ${JSON.stringify(request.query, null, 4)}`);
+            }
             content.push(`Headers: ${JSON.stringify(request.headers, null, 4)}`);
-
             if (['POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'TRACE', 'CONNECT'].includes(request.method)) {
                 if (request.bodyType === 'json') {
-                    const sanitizedBody = this._utils.scanAndReplaceSensitiveData({ ...request.body }) // Copy the body without affecting the request body
+                    const sanitizedBody = this._utils.scanAndReplaceSensitiveData({ ...request.body }); // Copy the body without affecting the request body
                     content.push(`Body: ${JSON.stringify(sanitizedBody), null, 4}`);
                 }
             }
-
             content.push(`User: ${JSON.stringify(request.user, null, 4)}`);
             content.push(`Locale: ${request.locale}`);
             content.push(`Language: ${request.language}`);
             content.push(`Color Scheme: ${JSON.stringify(request.colorScheme, null, 4)}`);
-
-            content.push(this._diver, `${'#'.repeat(41)} HTTP Request End ${'#'.repeat(41)}`, this._diver)
-
+            content.push(this._diver, `${'#'.repeat(41)} HTTP Request End ${'#'.repeat(41)}`, this._diver);
             this._logger.log(content.join('\n'), 'Info');
-        } catch (error) {
+        }
+        catch (error) {
             this._logger.log(error, 'Error');
-        } finally {
+        }
+        finally {
             next();
         }
-    }
+    };
 }
-
-export default LogifyMiddlewares;
+exports.default = LogifyMiddlewares;
