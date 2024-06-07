@@ -57,11 +57,13 @@
   "author": "Nasriya Software, LLC.",
   "license": "Nasriya License",
   "devDependencies": {
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
     "@types/node-cron": "^3.0.11",
     "@types/node-schedule": "^2.1.7",
     "nasriya-copyfiles": "github:nasriyasoftware/CopyFiles",
-    "nasriya-modularizejs": "github:nasriyasoftware/ModularizeJS"
+    "nasriya-modularizejs": "github:nasriyasoftware/ModularizeJS",
+    "ts-jest": "^29.1.4"
   },
   "dependencies": {
     "nasriya-cron": "github:nasriyasoftware/NasriyaCron"
