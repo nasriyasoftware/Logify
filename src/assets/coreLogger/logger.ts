@@ -1,7 +1,7 @@
 import { EventEmitter } from 'events';
 import { ErrorSeverity, LogType } from '../../docs/docs';
 import helpers from '../../utils/helpers';
-import nasriyaCron from 'nasriya-cron';
+import nasriyaCron from '@nasriya/cron';
 import { ScheduledTask } from 'node-cron';
 import fileSystem from '../../utils/fileSystem';
 import AppError from '../errors/assets/AppError';
