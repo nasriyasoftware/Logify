@@ -8,18 +8,18 @@ Made with ❤️ in **Palestine** 🇵🇸
 ___
 ### Installation
 ```shell
-npm i nasriyasoftware/logify
+npm i @nasriya/logify
 ```
 
 ### Importing
 Import in **ES6** module
 ```ts
-import logify from 'nasriya-logify';
+import logify from '@nasriya/logify';
 ```
 
 Import in **CommonJS (CJS)**
 ```js
-const logify = require('nasriya-logify').default;
+const logify = require('@nasriya/logify').default;
 ```
 
 ### Configuration
