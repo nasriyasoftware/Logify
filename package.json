@@ -1,6 +1,6 @@
 {
   "name": "@nasriya/logify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Versatile logging package for seamless integration and comprehensive error tracking.",
   "main": "./dist/cjs/main.cjs",
   "module": "./dist/esm/main.mjs",
@@ -30,11 +30,10 @@
     }
   ],
   "scripts": {
-    "build": "npm run build:esm && npm run build:cjs && npm run rename && npm run copyFiles",
+    "build": "npm run build:esm && npm run build:cjs && postbuild",
     "build:esm": "tsc --project tsconfig.esm.json",
     "build:cjs": "tsc --project tsconfig.cjs.json",
-    "rename": "mod-js",
-    "copyFiles": "ns-copySrc",
+    "postbuild-init": "postbuild-init",
     "test": "jest"
   },
   "keywords": [
@@ -57,12 +56,11 @@
   "author": "Nasriya Software, LLC.",
   "license": "Nasriya License",
   "devDependencies": {
+    "@nasriya/postbuild": "^1.0.1",
     "@types/jest": "^29.5.12",
     "@types/node": "^20.12.7",
     "@types/node-cron": "^3.0.11",
     "@types/node-schedule": "^2.1.7",
-    "nasriya-copyfiles": "github:nasriyasoftware/CopyFiles",
-    "nasriya-modularizejs": "github:nasriyasoftware/ModularizeJS",
     "ts-jest": "^29.1.4"
   },
   "dependencies": {
