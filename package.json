@@ -1,6 +1,6 @@
 {
   "name": "@nasriya/logify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Versatile logging package for seamless integration and comprehensive error tracking.",
   "main": "./dist/cjs/main.js",
   "module": "./dist/esm/main.js",
@@ -65,5 +65,9 @@
   },
   "dependencies": {
     "@nasriya/cron": "^1.0.2"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://fund.nasriya.net/"
   }
 }

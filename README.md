@@ -4,7 +4,16 @@
 ##### Visit us at [www.nasriya.net](https://nasriya.net).
 
 Logify is a simple and powerful **Node.js** logging package.
+
 Made with ❤️ in **Palestine** 🇵🇸
+
+> [!IMPORTANT]
+> 🌟 **Support Our Open-Source Development!** 🌟
+> We need your support to keep our projects going! If you find our > work valuable, please consider contributing. Your support helps us > continue to develop and maintain these tools.
+> 
+> **[Click here to support us!](https://fund.nasriya.net/)**
+> 
+> Every contribution, big or small, makes a difference. Thank you for > your generosity and support!
 ___
 ### Installation
 ```shell
